@@ -1,0 +1,1230 @@
+{
+  "openapi": "3.0.4",
+  "info": {
+    "title": "Rips",
+    "description": "EndPoints relacionados con RIPs & SAP",
+    "contact": {
+      "name": "Ing. Robinson E. Gomez",
+      "email": "desarrollador.senior4@foscal.com.co"
+    },
+    "version": "v1"
+  },
+  "paths": {
+    "/api/Email/sendEmail": {
+      "post": {
+        "tags": [
+          "Email"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmailDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmailDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmailDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Fev/getXML/{id}/{einri}": {
+      "get": {
+        "tags": [
+          "Fev"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "einri",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Rips/CargarFevRips": {
+      "post": {
+        "tags": [
+          "Rips"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CargueFevRipsDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CargueFevRipsDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CargueFevRipsDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RespuestaCargueFevRipsDTO"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RespuestaCargueFevRipsDTO"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RespuestaCargueFevRipsDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Rips/ConsultarCUV": {
+      "post": {
+        "tags": [
+          "Rips"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CargueCUVParam"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CargueCUVParam"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CargueCUVParam"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RespuestaConsultarCUVDTO"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RespuestaConsultarCUVDTO"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RespuestaConsultarCUVDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Rips/Version": {
+      "get": {
+        "tags": [
+          "Rips"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Rips/format": {
+      "post": {
+        "tags": [
+          "Rips"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "string"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "string"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "CargueCUVParam": {
+        "type": "object",
+        "properties": {
+          "codigoUnicoValidacion": {
+            "type": "string",
+            "nullable": true
+          },
+          "einri": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CargueFevRipsDTO": {
+        "type": "object",
+        "properties": {
+          "rips": {
+            "$ref": "#/components/schemas/RipsDTO"
+          },
+          "xmlFevFile": {
+            "type": "string",
+            "nullable": true
+          },
+          "codigoUnicoValidacion": {
+            "type": "string",
+            "nullable": true
+          },
+          "einri": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ConsultaDTO": {
+        "type": "object",
+        "properties": {
+          "codPrestador": {
+            "type": "string",
+            "nullable": true
+          },
+          "fechaInicioAtencion": {
+            "type": "string",
+            "nullable": true
+          },
+          "numAutorizacion": {
+            "type": "string",
+            "nullable": true
+          },
+          "codConsulta": {
+            "type": "string",
+            "nullable": true
+          },
+          "modalidadGrupoServicioTecSal": {
+            "type": "string",
+            "nullable": true
+          },
+          "grupoServicios": {
+            "type": "string",
+            "nullable": true
+          },
+          "codServicio": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "finalidadTecnologiaSalud": {
+            "type": "string",
+            "nullable": true
+          },
+          "causaMotivoAtencion": {
+            "type": "string",
+            "nullable": true
+          },
+          "codDiagnosticoPrincipal": {
+            "type": "string",
+            "nullable": true
+          },
+          "codDiagnosticoRelacionado1": {
+            "type": "string",
+            "nullable": true
+          },
+          "codDiagnosticoRelacionado2": {
+            "type": "string",
+            "nullable": true
+          },
+          "codDiagnosticoRelacionado3": {
+            "type": "string",
+            "nullable": true
+          },
+          "tipoDiagnosticoPrincipal": {
+            "type": "string",
+            "nullable": true
+          },
+          "tipoDocumentoIdentificacion": {
+            "type": "string",
+            "nullable": true
+          },
+          "numDocumentoIdentificacion": {
+            "type": "string",
+            "nullable": true
+          },
+          "vrServicio": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "conceptoRecaudo": {
+            "type": "string",
+            "nullable": true
+          },
+          "valorPagoModerador": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "numFEVPagoModerador": {
+            "type": "string",
+            "nullable": true
+          },
+          "consecutivo": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EmailDTO": {
+        "type": "object",
+        "properties": {
+          "destinatarios": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "ccDestinatarios": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "adjunto": {
+            "type": "string",
+            "nullable": true
+          },
+          "tipoEmail": {
+            "type": "string",
+            "nullable": true
+          },
+          "asunto": {
+            "type": "string",
+            "nullable": true
+          },
+          "cuerpo": {
+            "type": "string",
+            "nullable": true
+          },
+          "nombreadjunto": {
+            "type": "string",
+            "nullable": true
+          },
+          "tipoCorreo": {
+            "type": "string",
+            "nullable": true
+          },
+          "claveArchivo": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "HospitalizacionDTO": {
+        "type": "object",
+        "properties": {
+          "codPrestador": {
+            "type": "string",
+            "nullable": true
+          },
+          "viaIngresoServicioSalud": {
+            "type": "string",
+            "nullable": true
+          },
+          "fechaInicioAtencion": {
+            "type": "string",
+            "nullable": true
+          },
+          "numAutorizacion": {
+            "type": "string",
+            "nullable": true
+          },
+          "causaMotivoAtencion": {
+            "type": "string",
+            "nullable": true
+          },
+          "codDiagnosticoPrincipal": {
+            "type": "string",
+            "nullable": true
+          },
+          "codDiagnosticoPrincipalE": {
+            "type": "string",
+            "nullable": true
+          },
+          "codDiagnosticoRelacionadoE1": {
+            "type": "string",
+            "nullable": true
+          },
+          "codDiagnosticoRelacionadoE2": {
+            "type": "string",
+            "nullable": true
+          },
+          "codDiagnosticoRelacionadoE3": {
+            "type": "string",
+            "nullable": true
+          },
+          "codComplicacion": {
+            "type": "string",
+            "nullable": true
+          },
+          "condicionDestinoUsuarioEgreso": {
+            "type": "string",
+            "nullable": true
+          },
+          "codDiagnosticoCausaMuerte": {
+            "type": "string",
+            "nullable": true
+          },
+          "fechaEgreso": {
+            "type": "string",
+            "nullable": true
+          },
+          "consecutivo": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "MedicamentoDTO": {
+        "type": "object",
+        "properties": {
+          "codPrestador": {
+            "type": "string",
+            "nullable": true
+          },
+          "numAutorizacion": {
+            "type": "string",
+            "nullable": true
+          },
+          "idMIPRES": {
+            "type": "string",
+            "nullable": true
+          },
+          "fechaDispensAdmon": {
+            "type": "string",
+            "nullable": true
+          },
+          "codDiagnosticoPrincipal": {
+            "type": "string",
+            "nullable": true
+          },
+          "codDiagnosticoRelacionado": {
+            "type": "string",
+            "nullable": true
+          },
+          "tipoMedicamento": {
+            "type": "string",
+            "nullable": true
+          },
+          "codTecnologiaSalud": {
+            "type": "string",
+            "nullable": true
+          },
+          "nomTecnologiaSalud": {
+            "type": "string",
+            "nullable": true
+          },
+          "concentracionMedicamento": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "formaFarmaceutica": {
+            "type": "string",
+            "nullable": true
+          },
+          "unidadMedida": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "unidadMinDispensa": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "cantidadMedicamento": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "diasTratamiento": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "tipoDocumentoIdentificacion": {
+            "type": "string",
+            "nullable": true
+          },
+          "numDocumentoIdentificacion": {
+            "type": "string",
+            "nullable": true
+          },
+          "vrUnitMedicamento": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "vrServicio": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "conceptoRecaudo": {
+            "type": "string",
+            "nullable": true
+          },
+          "valorPagoModerador": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "numFEVPagoModerador": {
+            "type": "string",
+            "nullable": true
+          },
+          "consecutivo": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "OtroServicioDTO": {
+        "type": "object",
+        "properties": {
+          "codPrestador": {
+            "type": "string",
+            "nullable": true
+          },
+          "numAutorizacion": {
+            "type": "string",
+            "nullable": true
+          },
+          "idMIPRES": {
+            "type": "string",
+            "nullable": true
+          },
+          "fechaSuministroTecnologia": {
+            "type": "string",
+            "nullable": true
+          },
+          "tipoOS": {
+            "type": "string",
+            "nullable": true
+          },
+          "codTecnologiaSalud": {
+            "type": "string",
+            "nullable": true
+          },
+          "nomTecnologiaSalud": {
+            "type": "string",
+            "nullable": true
+          },
+          "cantidadOS": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "tipoDocumentoIdentificacion": {
+            "type": "string",
+            "nullable": true
+          },
+          "numDocumentoIdentificacion": {
+            "type": "string",
+            "nullable": true
+          },
+          "vrUnitOS": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "vrServicio": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "conceptoRecaudo": {
+            "type": "string",
+            "nullable": true
+          },
+          "valorPagoModerador": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "numFEVPagoModerador": {
+            "type": "string",
+            "nullable": true
+          },
+          "consecutivo": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProcedimientoDTO": {
+        "type": "object",
+        "properties": {
+          "codPrestador": {
+            "type": "string",
+            "nullable": true
+          },
+          "fechaInicioAtencion": {
+            "type": "string",
+            "nullable": true
+          },
+          "idMIPRES": {
+            "type": "string",
+            "nullable": true
+          },
+          "numAutorizacion": {
+            "type": "string",
+            "nullable": true
+          },
+          "codProcedimiento": {
+            "type": "string",
+            "nullable": true
+          },
+          "viaIngresoServicioSalud": {
+            "type": "string",
+            "nullable": true
+          },
+          "modalidadGrupoServicioTecSal": {
+            "type": "string",
+            "nullable": true
+          },
+          "grupoServicios": {
+            "type": "string",
+            "nullable": true
+          },
+          "codServicio": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "finalidadTecnologiaSalud": {
+            "type": "string",
+            "nullable": true
+          },
+          "tipoDocumentoIdentificacion": {
+            "type": "string",
+            "nullable": true
+          },
+          "numDocumentoIdentificacion": {
+            "type": "string",
+            "nullable": true
+          },
+          "codDiagnosticoPrincipal": {
+            "type": "string",
+            "nullable": true
+          },
+          "codDiagnosticoRelacionado": {
+            "type": "string",
+            "nullable": true
+          },
+          "codComplicacion": {
+            "type": "string",
+            "nullable": true
+          },
+          "vrServicio": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "conceptoRecaudo": {
+            "type": "string",
+            "nullable": true
+          },
+          "valorPagoModerador": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "numFEVPagoModerador": {
+            "type": "string",
+            "nullable": true
+          },
+          "consecutivo": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RecienNacidoDTO": {
+        "type": "object",
+        "properties": {
+          "codPrestador": {
+            "type": "string",
+            "nullable": true
+          },
+          "tipoDocumentoIdentificacion": {
+            "type": "string",
+            "nullable": true
+          },
+          "numDocumentoIdentificacion": {
+            "type": "string",
+            "nullable": true
+          },
+          "fechaNacimiento": {
+            "type": "string",
+            "nullable": true
+          },
+          "edadGestacional": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "numConsultasCPrenatal": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "codSexoBiologico": {
+            "type": "string",
+            "nullable": true
+          },
+          "peso": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "codDiagnosticoPrincipal": {
+            "type": "string",
+            "nullable": true
+          },
+          "condicionDestinoUsuarioEgreso": {
+            "type": "string",
+            "nullable": true
+          },
+          "codDiagnosticoCausaMuerte": {
+            "type": "string",
+            "nullable": true
+          },
+          "fechaEgreso": {
+            "type": "string",
+            "nullable": true
+          },
+          "consecutivo": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RespuestaCargueFevRipsDTO": {
+        "type": "object",
+        "properties": {
+          "ResultState": {
+            "type": "boolean"
+          },
+          "ProcesoId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "NumFactura": {
+            "type": "string",
+            "nullable": true
+          },
+          "CodigoUnicoValidacion": {
+            "type": "string",
+            "nullable": true
+          },
+          "CodigoUnicoValidacionToShow": {
+            "type": "string",
+            "nullable": true
+          },
+          "FechaRadicacion": {
+            "type": "string",
+            "nullable": true
+          },
+          "RutaArchivos": {
+            "type": "string",
+            "nullable": true
+          },
+          "ResultadosValidacion": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ResultadoValidacion"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RespuestaConsultarCUVDTO": {
+        "type": "object",
+        "properties": {
+          "procesoId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "esValido": {
+            "type": "boolean"
+          },
+          "codigoUnicoValidacion": {
+            "type": "string",
+            "nullable": true
+          },
+          "fechaValidacion": {
+            "type": "string",
+            "nullable": true
+          },
+          "numDocumentoIdObligado": {
+            "type": "string",
+            "nullable": true
+          },
+          "numeroDocumento": {
+            "type": "string",
+            "nullable": true
+          },
+          "fechaEmision": {
+            "type": "string",
+            "nullable": true
+          },
+          "totalFactura": {
+            "type": "number",
+            "format": "double"
+          },
+          "cantidadUsuarios": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "cantidadAtenciones": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalValorServicios": {
+            "type": "number",
+            "format": "double"
+          },
+          "identificacionAdquiriente": {
+            "type": "string",
+            "nullable": true
+          },
+          "codigoPrestador": {
+            "type": "string",
+            "nullable": true
+          },
+          "modalidadPago": {
+            "type": "string",
+            "nullable": true
+          },
+          "numDocumentoReferenciado": {
+            "type": "string",
+            "nullable": true
+          },
+          "urlJson": {
+            "type": "string",
+            "nullable": true
+          },
+          "urlXml": {
+            "type": "string",
+            "nullable": true
+          },
+          "jsonFile": {
+            "type": "string",
+            "nullable": true
+          },
+          "xmlFileBase64": {
+            "type": "string",
+            "nullable": true
+          },
+          "resultadosValidacion": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ResultadoValidacionDTO"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResultadoValidacion": {
+        "type": "object",
+        "properties": {
+          "Clase": {
+            "type": "string",
+            "nullable": true
+          },
+          "Codigo": {
+            "type": "string",
+            "nullable": true
+          },
+          "Descripcion": {
+            "type": "string",
+            "nullable": true
+          },
+          "Observaciones": {
+            "type": "string",
+            "nullable": true
+          },
+          "PathFuente": {
+            "type": "string",
+            "nullable": true
+          },
+          "Fuente": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResultadoValidacionDTO": {
+        "type": "object",
+        "properties": {
+          "clase": {
+            "type": "string",
+            "nullable": true
+          },
+          "codigo": {
+            "type": "string",
+            "nullable": true
+          },
+          "descripcion": {
+            "type": "string",
+            "nullable": true
+          },
+          "observaciones": {
+            "type": "string",
+            "nullable": true
+          },
+          "pathFuente": {
+            "type": "string",
+            "nullable": true
+          },
+          "fuente": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RipsDTO": {
+        "type": "object",
+        "properties": {
+          "numDocumentoIdObligado": {
+            "type": "string",
+            "nullable": true
+          },
+          "numFactura": {
+            "type": "string",
+            "nullable": true
+          },
+          "tipoNota": {
+            "type": "string",
+            "nullable": true
+          },
+          "numNota": {
+            "type": "string",
+            "nullable": true
+          },
+          "usuarios": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UsuarioDTO"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ServiciosDTO": {
+        "type": "object",
+        "properties": {
+          "consultas": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ConsultaDTO"
+            },
+            "nullable": true
+          },
+          "procedimientos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProcedimientoDTO"
+            },
+            "nullable": true
+          },
+          "urgencias": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UrgenciaDTO"
+            },
+            "nullable": true
+          },
+          "hospitalizacion": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/HospitalizacionDTO"
+            },
+            "nullable": true
+          },
+          "recienNacidos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RecienNacidoDTO"
+            },
+            "nullable": true
+          },
+          "medicamentos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MedicamentoDTO"
+            },
+            "nullable": true
+          },
+          "otrosServicios": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OtroServicioDTO"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UrgenciaDTO": {
+        "type": "object",
+        "properties": {
+          "codPrestador": {
+            "type": "string",
+            "nullable": true
+          },
+          "fechaInicioAtencion": {
+            "type": "string",
+            "nullable": true
+          },
+          "causaMotivoAtencion": {
+            "type": "string",
+            "nullable": true
+          },
+          "codDiagnosticoPrincipal": {
+            "type": "string",
+            "nullable": true
+          },
+          "codDiagnosticoPrincipalE": {
+            "type": "string",
+            "nullable": true
+          },
+          "codDiagnosticoRelacionadoE1": {
+            "type": "string",
+            "nullable": true
+          },
+          "codDiagnosticoRelacionadoE2": {
+            "type": "string",
+            "nullable": true
+          },
+          "codDiagnosticoRelacionadoE3": {
+            "type": "string",
+            "nullable": true
+          },
+          "condicionDestinoUsuarioEgreso": {
+            "type": "string",
+            "nullable": true
+          },
+          "codDiagnosticoCausaMuerte": {
+            "type": "string",
+            "nullable": true
+          },
+          "fechaEgreso": {
+            "type": "string",
+            "nullable": true
+          },
+          "consecutivo": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UsuarioDTO": {
+        "type": "object",
+        "properties": {
+          "tipoDocumentoIdentificacion": {
+            "type": "string",
+            "nullable": true
+          },
+          "numDocumentoIdentificacion": {
+            "type": "string",
+            "nullable": true
+          },
+          "tipoUsuario": {
+            "type": "string",
+            "nullable": true
+          },
+          "fechaNacimiento": {
+            "type": "string",
+            "nullable": true
+          },
+          "codSexo": {
+            "type": "string",
+            "nullable": true
+          },
+          "codPaisResidencia": {
+            "type": "string",
+            "nullable": true
+          },
+          "codPaisOrigen": {
+            "type": "string",
+            "nullable": true
+          },
+          "codMunicipioResidencia": {
+            "type": "string",
+            "nullable": true
+          },
+          "codZonaTerritorialResidencia": {
+            "type": "string",
+            "nullable": true
+          },
+          "incapacidad": {
+            "type": "string",
+            "nullable": true
+          },
+          "consecutivo": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "servicios": {
+            "$ref": "#/components/schemas/ServiciosDTO"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}

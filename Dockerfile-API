@@ -1,0 +1,48 @@
+# -------------------
+# Etapa 1: Build
+# -------------------
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+WORKDIR /src
+
+# Copiar archivos de proyecto
+COPY ["AllRIPs.API/AllRIPs.API.csproj", "AllRIPs.API/"]
+COPY ["AllRIPs.DTOS/AllRIPs.DTOS.csproj", "AllRIPs.DTOS/"]
+COPY ["AllRIPs.FEV/AllRIPs.FEV.csproj", "AllRIPs.FEV/"]
+COPY ["AllRIPs.SERVICES/AllRIPs.SERVICES.csproj", "AllRIPs.SERVICES/"]
+
+# Restaurar dependencias
+RUN dotnet restore "AllRIPs.API/AllRIPs.API.csproj"
+
+# Copiar todo el código
+COPY . .
+
+# Publicar en modo Release
+WORKDIR "/src/AllRIPs.API"
+RUN dotnet publish "AllRIPs.API.csproj" -c Release -o /app/publish /p:UseAppHost=false
+
+
+# -------------------
+# Etapa 2: Runtime
+# -------------------
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS final
+WORKDIR /app
+
+# Crear usuario no root
+RUN addgroup --system appgroup \
+    && adduser --system --ingroup appgroup appuser
+
+# Copiar desde la etapa de build
+COPY --from=build /app/publish .
+
+# Cambiar permisos para el usuario
+RUN chown -R appuser:appgroup /app
+
+# Cambiar a usuario no root
+USER appuser
+
+# Exponer puerto
+EXPOSE 80
+ENV ASPNETCORE_URLS=http://+:80
+
+# Ejecutar aplicación
+ENTRYPOINT ["dotnet", "AllRIPs.API.dll"]

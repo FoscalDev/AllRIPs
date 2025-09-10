@@ -1,0 +1,15 @@
+C:\Developments\CSharp\AllRIPs\AllRIPs.FEV\bin\Debug\net8.0\AllRIPs.FEV.deps.json
+C:\Developments\CSharp\AllRIPs\AllRIPs.FEV\bin\Debug\net8.0\AllRIPs.FEV.dll
+C:\Developments\CSharp\AllRIPs\AllRIPs.FEV\bin\Debug\net8.0\AllRIPs.FEV.pdb
+C:\Developments\CSharp\AllRIPs\AllRIPs.FEV\bin\Debug\net8.0\AllRIPs.DTOS.dll
+C:\Developments\CSharp\AllRIPs\AllRIPs.FEV\bin\Debug\net8.0\AllRIPs.DTOS.pdb
+C:\Developments\CSharp\AllRIPs\AllRIPs.FEV\obj\Debug\net8.0\AllRIPs.FEV.csproj.AssemblyReference.cache
+C:\Developments\CSharp\AllRIPs\AllRIPs.FEV\obj\Debug\net8.0\AllRIPs.FEV.GeneratedMSBuildEditorConfig.editorconfig
+C:\Developments\CSharp\AllRIPs\AllRIPs.FEV\obj\Debug\net8.0\AllRIPs.FEV.AssemblyInfoInputs.cache
+C:\Developments\CSharp\AllRIPs\AllRIPs.FEV\obj\Debug\net8.0\AllRIPs.FEV.AssemblyInfo.cs
+C:\Developments\CSharp\AllRIPs\AllRIPs.FEV\obj\Debug\net8.0\AllRIPs.FEV.csproj.CoreCompileInputs.cache
+C:\Developments\CSharp\AllRIPs\AllRIPs.FEV\obj\Debug\net8.0\AllRIPs..775E13D2.Up2Date
+C:\Developments\CSharp\AllRIPs\AllRIPs.FEV\obj\Debug\net8.0\AllRIPs.FEV.dll
+C:\Developments\CSharp\AllRIPs\AllRIPs.FEV\obj\Debug\net8.0\refint\AllRIPs.FEV.dll
+C:\Developments\CSharp\AllRIPs\AllRIPs.FEV\obj\Debug\net8.0\AllRIPs.FEV.pdb
+C:\Developments\CSharp\AllRIPs\AllRIPs.FEV\obj\Debug\net8.0\ref\AllRIPs.FEV.dll

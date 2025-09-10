@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "XSrI8ti32nY=",
+  "success": true,
+  "projectFilePath": "C:\\Developments\\AllRIPs\\AllRIPs.SERVICES\\AllRIPs.SERVICES.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ROBINSG\\.nuget\\packages\\microsoft.extensions.configuration\\9.0.8\\microsoft.extensions.configuration.9.0.8.nupkg.sha512",
+    "C:\\Users\\ROBINSG\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\9.0.8\\microsoft.extensions.configuration.abstractions.9.0.8.nupkg.sha512",
+    "C:\\Users\\ROBINSG\\.nuget\\packages\\microsoft.extensions.configuration.binder\\9.0.8\\microsoft.extensions.configuration.binder.9.0.8.nupkg.sha512",
+    "C:\\Users\\ROBINSG\\.nuget\\packages\\microsoft.extensions.primitives\\9.0.8\\microsoft.extensions.primitives.9.0.8.nupkg.sha512",
+    "C:\\Users\\ROBINSG\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\ROBINSG\\.nuget\\packages\\serilog\\4.3.0\\serilog.4.3.0.nupkg.sha512"
+  ],
+  "logs": []
+}

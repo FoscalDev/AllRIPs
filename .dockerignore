@@ -1,0 +1,39 @@
+# -------------------
+# Archivos y carpetas de compilación
+# -------------------
+**/bin/
+**/obj/
+**/out/
+
+# -------------------
+# Configuración y cachés
+# -------------------
+*.user
+*.vspscc
+*.vscode
+.vs/
+*.suo
+*.cache
+*.log
+
+# -------------------
+# Control de versiones
+# -------------------
+.git/
+.gitignore
+.gitattributes
+
+# -------------------
+# Archivos temporales
+# -------------------
+*.tmp
+*.temp
+*.swp
+*.sln.docstates
+
+# -------------------
+# Otros innecesarios
+# -------------------
+Dockerfile*
+docker-compose*
+README.md

@@ -1,0 +1,15 @@
+C:\Developments\CSharp\AllRIPs\AllRIPs.SERVICES\bin\Debug\net8.0\AllRIPs.SERVICES.deps.json
+C:\Developments\CSharp\AllRIPs\AllRIPs.SERVICES\bin\Debug\net8.0\AllRIPs.SERVICES.dll
+C:\Developments\CSharp\AllRIPs\AllRIPs.SERVICES\bin\Debug\net8.0\AllRIPs.SERVICES.pdb
+C:\Developments\CSharp\AllRIPs\AllRIPs.SERVICES\bin\Debug\net8.0\AllRIPs.DTOS.dll
+C:\Developments\CSharp\AllRIPs\AllRIPs.SERVICES\bin\Debug\net8.0\AllRIPs.DTOS.pdb
+C:\Developments\CSharp\AllRIPs\AllRIPs.SERVICES\obj\Debug\net8.0\AllRIPs.SERVICES.csproj.AssemblyReference.cache
+C:\Developments\CSharp\AllRIPs\AllRIPs.SERVICES\obj\Debug\net8.0\AllRIPs.SERVICES.GeneratedMSBuildEditorConfig.editorconfig
+C:\Developments\CSharp\AllRIPs\AllRIPs.SERVICES\obj\Debug\net8.0\AllRIPs.SERVICES.AssemblyInfoInputs.cache
+C:\Developments\CSharp\AllRIPs\AllRIPs.SERVICES\obj\Debug\net8.0\AllRIPs.SERVICES.AssemblyInfo.cs
+C:\Developments\CSharp\AllRIPs\AllRIPs.SERVICES\obj\Debug\net8.0\AllRIPs.SERVICES.csproj.CoreCompileInputs.cache
+C:\Developments\CSharp\AllRIPs\AllRIPs.SERVICES\obj\Debug\net8.0\AllRIPs..14B4B3D3.Up2Date
+C:\Developments\CSharp\AllRIPs\AllRIPs.SERVICES\obj\Debug\net8.0\AllRIPs.SERVICES.dll
+C:\Developments\CSharp\AllRIPs\AllRIPs.SERVICES\obj\Debug\net8.0\refint\AllRIPs.SERVICES.dll
+C:\Developments\CSharp\AllRIPs\AllRIPs.SERVICES\obj\Debug\net8.0\AllRIPs.SERVICES.pdb
+C:\Developments\CSharp\AllRIPs\AllRIPs.SERVICES\obj\Debug\net8.0\ref\AllRIPs.SERVICES.dll

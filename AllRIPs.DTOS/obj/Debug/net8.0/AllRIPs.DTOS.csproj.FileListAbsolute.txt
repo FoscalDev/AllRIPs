@@ -1,0 +1,12 @@
+C:\Developments\CSharp\AllRIPs\AllRIPs.DTOS\bin\Debug\net8.0\AllRIPs.DTOS.deps.json
+C:\Developments\CSharp\AllRIPs\AllRIPs.DTOS\bin\Debug\net8.0\AllRIPs.DTOS.dll
+C:\Developments\CSharp\AllRIPs\AllRIPs.DTOS\bin\Debug\net8.0\AllRIPs.DTOS.pdb
+C:\Developments\CSharp\AllRIPs\AllRIPs.DTOS\obj\Debug\net8.0\AllRIPs.DTOS.csproj.AssemblyReference.cache
+C:\Developments\CSharp\AllRIPs\AllRIPs.DTOS\obj\Debug\net8.0\AllRIPs.DTOS.GeneratedMSBuildEditorConfig.editorconfig
+C:\Developments\CSharp\AllRIPs\AllRIPs.DTOS\obj\Debug\net8.0\AllRIPs.DTOS.AssemblyInfoInputs.cache
+C:\Developments\CSharp\AllRIPs\AllRIPs.DTOS\obj\Debug\net8.0\AllRIPs.DTOS.AssemblyInfo.cs
+C:\Developments\CSharp\AllRIPs\AllRIPs.DTOS\obj\Debug\net8.0\AllRIPs.DTOS.csproj.CoreCompileInputs.cache
+C:\Developments\CSharp\AllRIPs\AllRIPs.DTOS\obj\Debug\net8.0\AllRIPs.DTOS.dll
+C:\Developments\CSharp\AllRIPs\AllRIPs.DTOS\obj\Debug\net8.0\refint\AllRIPs.DTOS.dll
+C:\Developments\CSharp\AllRIPs\AllRIPs.DTOS\obj\Debug\net8.0\AllRIPs.DTOS.pdb
+C:\Developments\CSharp\AllRIPs\AllRIPs.DTOS\obj\Debug\net8.0\ref\AllRIPs.DTOS.dll
