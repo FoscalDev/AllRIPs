@@ -17,6 +17,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Elementos de la solución",
 		Dockerfile-API = Dockerfile-API
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AllRIPs.INTERFACES", "AllRIPs.INTERFACES\AllRIPs.INTERFACES.csproj", "{2FF468AA-C8A3-409F-A6D4-D533B4AD6957}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{BE533854-125B-4322-AE8D-33E80457B102}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE533854-125B-4322-AE8D-33E80457B102}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE533854-125B-4322-AE8D-33E80457B102}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FF468AA-C8A3-409F-A6D4-D533B4AD6957}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FF468AA-C8A3-409F-A6D4-D533B4AD6957}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FF468AA-C8A3-409F-A6D4-D533B4AD6957}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FF468AA-C8A3-409F-A6D4-D533B4AD6957}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

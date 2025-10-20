@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "AllRIPs.INTERFACES/1.0.0": {
+        "runtime": {
+          "AllRIPs.INTERFACES.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "AllRIPs.INTERFACES/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

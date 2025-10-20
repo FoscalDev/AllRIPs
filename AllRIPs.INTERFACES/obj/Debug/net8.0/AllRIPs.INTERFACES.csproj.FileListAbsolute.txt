@@ -1,0 +1,12 @@
+C:\Developments\AllRIPs\AllRIPs.INTERFACES\bin\Debug\net8.0\AllRIPs.INTERFACES.deps.json
+C:\Developments\AllRIPs\AllRIPs.INTERFACES\bin\Debug\net8.0\AllRIPs.INTERFACES.dll
+C:\Developments\AllRIPs\AllRIPs.INTERFACES\bin\Debug\net8.0\AllRIPs.INTERFACES.pdb
+C:\Developments\AllRIPs\AllRIPs.INTERFACES\obj\Debug\net8.0\AllRIPs.INTERFACES.GeneratedMSBuildEditorConfig.editorconfig
+C:\Developments\AllRIPs\AllRIPs.INTERFACES\obj\Debug\net8.0\AllRIPs.INTERFACES.AssemblyInfoInputs.cache
+C:\Developments\AllRIPs\AllRIPs.INTERFACES\obj\Debug\net8.0\AllRIPs.INTERFACES.AssemblyInfo.cs
+C:\Developments\AllRIPs\AllRIPs.INTERFACES\obj\Debug\net8.0\AllRIPs.INTERFACES.csproj.CoreCompileInputs.cache
+C:\Developments\AllRIPs\AllRIPs.INTERFACES\obj\Debug\net8.0\AllRIPs.INTERFACES.sourcelink.json
+C:\Developments\AllRIPs\AllRIPs.INTERFACES\obj\Debug\net8.0\AllRIPs.INTERFACES.dll
+C:\Developments\AllRIPs\AllRIPs.INTERFACES\obj\Debug\net8.0\refint\AllRIPs.INTERFACES.dll
+C:\Developments\AllRIPs\AllRIPs.INTERFACES\obj\Debug\net8.0\AllRIPs.INTERFACES.pdb
+C:\Developments\AllRIPs\AllRIPs.INTERFACES\obj\Debug\net8.0\ref\AllRIPs.INTERFACES.dll

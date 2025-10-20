@@ -1,8 +1,9 @@
+using AllRIPs.FEV;
+using AllRIPs.INTERFACES;
+using AllRIPs.SERVICES;
 using Microsoft.OpenApi.Models;
 using Prometheus;
 using Serilog;
-using AllRIPs.FEV;
-using AllRIPs.SERVICES;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -32,6 +33,11 @@ builder.Services.AddCors(options =>
 builder.Services.AddScoped<RipsService>();
 builder.Services.AddScoped<ServicesFEV>();
 builder.Services.AddScoped<EmailService>();
+builder.Services.AddScoped<MongoService>();
+builder.Services.AddScoped<SapService>();
+
+builder.Services.AddSingleton<IBackgroundTaskQueue, BackgroundTaskQueueService>();
+builder.Services.AddHostedService<QueuedHostedService>();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
@@ -59,7 +65,7 @@ builder.WebHost.ConfigureKestrel(options =>
 
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
+if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI(c =>

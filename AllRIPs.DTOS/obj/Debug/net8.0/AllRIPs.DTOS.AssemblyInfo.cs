@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AllRIPs.DTOS")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+99672edb238785c90eb95ad5a6338e9742ac14aa")]
 [assembly: System.Reflection.AssemblyProductAttribute("AllRIPs.DTOS")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AllRIPs.DTOS")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

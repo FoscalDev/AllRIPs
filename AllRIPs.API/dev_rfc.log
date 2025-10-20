@@ -1,0 +1,128 @@
+
+**** Log file opened at 2025-10-07 08:18:26.234588 UTC-05:00 (Hora est. Pacífico, Sudamérica), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 11
+Compilation date          : May  5 2023 04:55:06
+CPIC library              : 753.2023.04.24 version 3
+NI library                : 40
+Kernel Release            : 753 Patch Level 1200
+Current working directory : C:\Developments\AllRIPs\AllRIPs.API
+Program                   : AllRIPs
+Process ID                : 17056
+User                      : ROBINSG
+Hardware                  : PC with Windows NT 12x AMD64 Level 6 (Mod 186 Step 2)
+Operating_system          : Windows NT 10.0
+Hostname                  : RENT_SISTE99
+IP address                : 172.19.44.4
+IPv6 address              : fe80::4e88:259c:9d42:69b0
+Global trace level        : 0
+
+2025-10-07 08:18:26.220466 [19816] >> Info entry
+	Did not find config file C:\Developments\AllRIPs\AllRIPs.API\sapnwrfc.ini.
+
+**** Log file opened at 2025-10-07 08:21:57.272626 UTC-05:00 (Hora est. Pacífico, Sudamérica), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 11
+Compilation date          : May  5 2023 04:55:06
+CPIC library              : 753.2023.04.24 version 3
+NI library                : 40
+Kernel Release            : 753 Patch Level 1200
+Current working directory : C:\Developments\AllRIPs\AllRIPs.API
+Program                   : AllRIPs
+Process ID                : 11296
+User                      : ROBINSG
+Hardware                  : PC with Windows NT 12x AMD64 Level 6 (Mod 186 Step 2)
+Operating_system          : Windows NT 10.0
+Hostname                  : RENT_SISTE99
+IP address                : 172.19.44.4
+IPv6 address              : fe80::4e88:259c:9d42:69b0
+Global trace level        : 0
+
+2025-10-07 08:21:57.271989 [11676] >> Error entry
+	[Handle: 1627869422832	ConvID: 	Target: 	SysID: 	SysNr: 	User: 	Codepage: 4103]
+	RfcCommunicationException: Return Value: 20, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host with Unicode
+ERROR       partner '200.116.209.150:3299' not reached
+TIME        Tue Oct  7 08:21:57 2025
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        3454
+DETAIL      NiPConnect2: 200.116.209.150:3299
+SYSTEM CALL connect
+ERRNO       10060
+ERRNO TEXT  WSAETIMEDOUT: Connection timed out
+COUNTER     2
+
+
+**** Log file opened at 2025-10-07 08:28:04.013644 UTC-05:00 (Hora est. Pacífico, Sudamérica), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 11
+Compilation date          : May  5 2023 04:55:06
+CPIC library              : 753.2023.04.24 version 3
+NI library                : 40
+Kernel Release            : 753 Patch Level 1200
+Current working directory : C:\Developments\AllRIPs\AllRIPs.API
+Program                   : AllRIPs
+Process ID                : 17040
+User                      : ROBINSG
+Hardware                  : PC with Windows NT 12x AMD64 Level 6 (Mod 186 Step 2)
+Operating_system          : Windows NT 10.0
+Hostname                  : RENT_SISTE99
+IP address                : 172.19.44.4
+IPv6 address              : fe80::4e88:259c:9d42:69b0
+Global trace level        : 0
+
+2025-10-07 08:28:04.013159 [21432] >> Error entry
+	[Handle: 1668653951168	ConvID: 	Target: 	SysID: 	SysNr: 	User: 	Codepage: 4103]
+	RfcCommunicationException: Return Value: 20, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host with Unicode
+ERROR       partner '200.116.209.150:3299' not reached
+TIME        Tue Oct  7 08:28:04 2025
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        3454
+DETAIL      NiPConnect2: 200.116.209.150:3299
+SYSTEM CALL connect
+ERRNO       10060
+ERRNO TEXT  WSAETIMEDOUT: Connection timed out
+COUNTER     2
+
+
+**** Log file opened at 2025-10-07 08:29:27.159874 UTC-05:00 (Hora est. Pacífico, Sudamérica), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 11
+Compilation date          : May  5 2023 04:55:06
+CPIC library              : 753.2023.04.24 version 3
+NI library                : 40
+Kernel Release            : 753 Patch Level 1200
+Current working directory : C:\Developments\AllRIPs\AllRIPs.API
+Program                   : AllRIPs
+Process ID                : 06592
+User                      : ROBINSG
+Hardware                  : PC with Windows NT 12x AMD64 Level 6 (Mod 186 Step 2)
+Operating_system          : Windows NT 10.0
+Hostname                  : RENT_SISTE99
+IP address                : 172.19.44.4
+IPv6 address              : fe80::debb:7c00:eba0:fb08
+Global trace level        : 0
+
+2025-10-07 08:29:27.159650 [22732] >> Error entry
+	[Handle: 2677979172944	ConvID: 	Target: 	SysID: 	SysNr: 	User: 	Codepage: 4103]
+	RfcCommunicationException: Return Value: 20, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host with Unicode
+ERROR       partner '200.116.209.150:3299' not reached
+TIME        Tue Oct  7 08:29:27 2025
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        3454
+DETAIL      NiPConnect2: 200.116.209.150:3299
+SYSTEM CALL connect
+ERRNO       10060
+ERRNO TEXT  WSAETIMEDOUT: Connection timed out
+COUNTER     2
+

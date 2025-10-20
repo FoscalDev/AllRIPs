@@ -13805,8 +13805,8 @@ namespace ServiceFEV
         {
             if ((endpointConfiguration == EndpointConfiguration.FacturacionWebServicePort))
             {
-                return new System.ServiceModel.EndpointAddress("https://portal.myeinvoice.co/CompunetWebService/FacturacionWebService"); //Prodcution.
-                //return new System.ServiceModel.EndpointAddress("https://habilitacion-myeinvoice.avance.org.co/CompunetWebService/FacturacionWebService"); //Development.
+                //return new System.ServiceModel.EndpointAddress("https://portal.myeinvoice.co/CompunetWebService/FacturacionWebService"); //Prodcution.
+                return new System.ServiceModel.EndpointAddress("https://habilitacion-myeinvoice.avance.org.co/CompunetWebService/FacturacionWebService"); //Development.
             }
             throw new System.InvalidOperationException(string.Format("No se pudo encontrar un punto de conexión con el nombre \"{0}\".", endpointConfiguration));
         }

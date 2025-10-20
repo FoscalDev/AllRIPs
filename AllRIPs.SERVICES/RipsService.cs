@@ -1,10 +1,10 @@
 ﻿using System.Net.Http.Json;
 using System.Text;
 using System.Text.Json;
+using AllRIPs.DTOS;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
-using AllRIPs.DTOS;
-using static AllRIPs.DTOS.RespuestaCargueFevRipsDTO;
+using static AllRIPs.DTOS.ResponseUploadFevRipsDTO;
 
 namespace AllRIPs.SERVICES
 {
@@ -12,10 +12,13 @@ namespace AllRIPs.SERVICES
     {
         private readonly IConfiguration Config;
         private readonly HttpClient _httpclient;
+        private readonly MongoService _mongoService;
 
-        public RipsService(IConfiguration config)
+        public RipsService(IConfiguration config, MongoService mongoService)
         {
             Config = config;
+            _mongoService = mongoService;
+
             var clientHandler = new HttpClientHandler
             {
                 ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => true,
@@ -62,7 +65,7 @@ namespace AllRIPs.SERVICES
             }
         }
 
-        public async Task<RespuestaCargueFevRipsDTO> CargarFevRipsJSON(CargueFevRipsDTO Json)
+        public async Task<ResponseUploadFevRipsDTO> CargarFevRipsJSON(UploadFevRipsDTO Json)
         {
             string
                 endPoint = Json!.rips!.tipoNota == "NC" ? "CargarNC" : Json!.rips!.tipoNota == "NA" ? "CargarNotaAjuste" : "CargarFevRips",
@@ -92,11 +95,26 @@ namespace AllRIPs.SERVICES
                 }
             );
 
-            var NewJson = new CargueFevRipsDTO
+            var NewJson = new UploadFevRipsDTO
             {
                 rips = Json.rips,
                 xmlFevFile = Json.xmlFevFile
             };
+
+            //if(NewJson.rips.tipoNota == "NA")
+            //{
+            //    ResponseMongoDTO dataMinistry = await _mongoService.GetDataMinistry(NewJson.rips.numFactura!);
+            //    if(dataMinistry != null)
+            //    {
+            //        RespuestaCargueFevRipsDTO data = dataMinistry.data!;
+            //        //Validatr si resulState es (TRUE).
+            //        if (data.resultState == true) return data;
+
+            //        //Validar si en mongo existe el (RVG18).
+            //        bool isExist = data.resultadosValidacion.Any(x => x.codigo == "RVG18");
+            //        if (isExist) return data;
+            //    }
+            //}
 
             string param = JsonConvert.SerializeObject(NewJson, Formatting.Indented);
 
@@ -108,14 +126,30 @@ namespace AllRIPs.SERVICES
             _httpclient.DefaultRequestHeaders.Clear();
             _httpclient.DefaultRequestHeaders.Add("Authorization", $"Bearer {token}");
 
-
             // Envío de la solicitud
             HttpResponseMessage Response = await _httpclient.SendAsync(Request);
 
             // Manejo de la respuesta
             if (Response.IsSuccessStatusCode)
             {
-                var respuesta = await Response.Content.ReadFromJsonAsync<RespuestaCargueFevRipsDTO>();
+                var respuesta = await Response.Content.ReadFromJsonAsync<ResponseUploadFevRipsDTO>();
+                // Guardar el Response en Mongo
+                await _mongoService.SaveResponseMinistry(new ResponseMongoDTO
+                {
+                    numFactura = Json.rips?.numFactura!,
+                    data = respuesta!
+                });
+
+                //if (NewJson.rips.tipoNota == "NA") {        
+                //    // Retornas el Ultimo Registro
+                //    ResponseMongoDTO dataMinistry = await _mongoService.GetDataMinistry(NewJson.rips.numFactura!);
+                //    if (dataMinistry != null)
+                //    {
+                //        RespuestaCargueFevRipsDTO data = dataMinistry.data!;
+                //        return data;
+                //    }
+                //}
+
                 return respuesta!;
             }
             else
@@ -124,13 +158,13 @@ namespace AllRIPs.SERVICES
                 using var doc = JsonDocument.Parse(json);
                 var root = doc.RootElement;
 
-                var newResponse = new RespuestaCargueFevRipsDTO();
+                var newResponse = new ResponseUploadFevRipsDTO();
 
                 if (root.ValueKind == JsonValueKind.Object &&
                     root.TryGetProperty("ResultadosValidacion", out var resultadosProp) &&
                     resultadosProp.ValueKind == JsonValueKind.Array)
                 {
-                    newResponse = System.Text.Json.JsonSerializer.Deserialize<RespuestaCargueFevRipsDTO>(json);
+                    newResponse = System.Text.Json.JsonSerializer.Deserialize<ResponseUploadFevRipsDTO>(json);
                 }
                 else
                 {
@@ -158,14 +192,14 @@ namespace AllRIPs.SERVICES
                         }
                     }
 
-                    newResponse = new RespuestaCargueFevRipsDTO
+                    newResponse = new ResponseUploadFevRipsDTO
                     {
                         resultState = false,
                         procesoId = 0,
-                        numFactura = Json.rips.numFactura!, // Aquí deberías extraer del JSON si está disponible
+                        numFactura = Json.rips.numFactura!,
                         codigoUnicoValidacion = "",
                         codigoUnicoValidacionToShow = "",
-                        fechaRadicacion = "", // Igual, extraer si es necesario
+                        fechaRadicacion = "",
                         rutaArchivos = "",
                         resultadosValidacion = Errors
                     };
@@ -175,7 +209,7 @@ namespace AllRIPs.SERVICES
             }
         }
 
-        public async Task<RespuestaConsultarCUVDTO> ConsultarCUV(CargueCUVParam Json)
+        public async Task<ResponseGetCUVDTO> ConsultarCUV(CargueCUVParam Json)
         {
             string fullUrl = $"{Config.GetValue<string>("EndPointDocker:Url")}api/ConsultasFevRips/ConsultarCUV",
                 base64Tipo = Config.GetValue<string>($"EndPointDocker:{Json.einri}:Tipo")!,
@@ -216,15 +250,13 @@ namespace AllRIPs.SERVICES
             _httpclient.DefaultRequestHeaders.Clear();
             _httpclient.DefaultRequestHeaders.Add("Authorization", $"Bearer {token}");
 
-
             HttpResponseMessage Response = await _httpclient.SendAsync(Request);
-
             var respuesta = await Response.Content.ReadAsStringAsync();
 
             if (Response.IsSuccessStatusCode)
             {
-                RespuestaConsultarCUVDTO? Result = await Response.Content.ReadFromJsonAsync<RespuestaConsultarCUVDTO>();
-                var newRespuestaConsultarCUVDTO = new RespuestaConsultarCUVDTO
+                ResponseGetCUVDTO? Result = await Response.Content.ReadFromJsonAsync<ResponseGetCUVDTO>();
+                var newResponseGetCUV = new ResponseGetCUVDTO
                 {
                     procesoId = Result!.procesoId,
                     esValido = Result.esValido,
@@ -246,7 +278,7 @@ namespace AllRIPs.SERVICES
                     jsonFile = Result.jsonFile,
                     xmlFileBase64 = Result.xmlFileBase64
                 };
-                return newRespuestaConsultarCUVDTO!;
+                return newResponseGetCUV;
             }
             else
             {

@@ -66,13 +66,13 @@
     "Parameters": [
       {
         "Name": "Param",
-        "Type": "AllRIPs.DTOS.CargueFevRipsDTO",
+        "Type": "AllRIPs.DTOS.UploadFevRipsDTO",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "AllRIPs.DTOS.RespuestaCargueFevRipsDTO",
+        "Type": "AllRIPs.DTOS.ResponseUploadFevRipsDTO",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -98,7 +98,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "AllRIPs.DTOS.RespuestaConsultarCUVDTO",
+        "Type": "AllRIPs.DTOS.ResponseGetCUVDTO",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -107,22 +107,6 @@
         "StatusCode": 200
       }
     ]
-  },
-  {
-    "ContainingType": "AllRIPs.API.Controllers.RipsController",
-    "Method": "FormatJson",
-    "RelativePath": "api/Rips/format",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "jsonInput",
-        "Type": "System.String",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
   },
   {
     "ContainingType": "AllRIPs.API.Controllers.RipsController",

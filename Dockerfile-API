@@ -1,25 +1,23 @@
-# -------------------
+﻿# -------------------
 # Etapa 1: Build
 # -------------------
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
-# Copiar archivos de proyecto
+# Copia los archivos de proyecto para restaurar dependencias primero (mejora el caching)
 COPY ["AllRIPs.API/AllRIPs.API.csproj", "AllRIPs.API/"]
 COPY ["AllRIPs.DTOS/AllRIPs.DTOS.csproj", "AllRIPs.DTOS/"]
 COPY ["AllRIPs.FEV/AllRIPs.FEV.csproj", "AllRIPs.FEV/"]
+COPY ["AllRIPs.INTERFACES/AllRIPs.INTERFACES.csproj", "AllRIPs.INTERFACES/"]
 COPY ["AllRIPs.SERVICES/AllRIPs.SERVICES.csproj", "AllRIPs.SERVICES/"]
 
-# Restaurar dependencias
+# Restaura las dependencias (el paso más lento)
 RUN dotnet restore "AllRIPs.API/AllRIPs.API.csproj"
 
-# Copiar todo el c�digo
+# Copia todo el código fuente y publica la aplicación
 COPY . .
-
-# Publicar en modo Release
 WORKDIR "/src/AllRIPs.API"
 RUN dotnet publish "AllRIPs.API.csproj" -c Release -o /app/publish /p:UseAppHost=false
-
 
 # -------------------
 # Etapa 2: Runtime
@@ -27,22 +25,34 @@ RUN dotnet publish "AllRIPs.API.csproj" -c Release -o /app/publish /p:UseAppHost
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS final
 WORKDIR /app
 
-# Crear usuario no root
-RUN addgroup --system appgroup \
-    && adduser --system --ingroup appgroup appuser
+# Instala dependencias del sistema operativo
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    libstdc++6 \
+    libxml2 \
+    libssl3 \
+    unixodbc \
+    && rm -rf /var/lib/apt/lists/*
 
-# Copiar desde la etapa de build
+# Copia las librerías de SAP e ICU a una ruta estándar
+COPY SAP.LIBS/ /usr/local/lib/
+
+# Configura la variable de entorno para que el linker encuentre las librerías
+ENV LD_LIBRARY_PATH=/usr/local/lib
+
+# Crea un usuario no root y asigna permisos
+RUN addgroup --system appgroup && \
+    adduser --system --ingroup appgroup appuser && \
+    chown -R appuser:appgroup /app
+
+# Copia la aplicación publicada
 COPY --from=build /app/publish .
 
-# Cambiar permisos para el usuario
-RUN chown -R appuser:appgroup /app
-
-# Cambiar a usuario no root
+# Cambia al usuario no root
 USER appuser
 
-# Exponer puerto
+# Expone el puerto y configura la URL
 EXPOSE 80
 ENV ASPNETCORE_URLS=http://+:80
 
-# Ejecutar aplicaci�n
+# Ejecuta la aplicación
 ENTRYPOINT ["dotnet", "AllRIPs.API.dll"]
